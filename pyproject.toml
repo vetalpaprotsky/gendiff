@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "vetalpaprotsky_gendiff"
+version = "0.1.0"
+description = ""
+license = "MIT"
+readme = "README.md"
+authors = ["Vitalii Paprotskyi <vetalpaprotsky@gmail.com>"]
+repository = "https://github.com/vetalpaprotsky/gendiff"
+packages = [
+  { include = "gendiff" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.8.3"
+
+[tool.poetry.scripts]
+gendiff = "gendiff.scripts.gendiff:main"
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
