@@ -1,51 +1,39 @@
 import json
 
 
-# TODO: Refactor me.
 def generate_diff(filepath1, filepath2):
     config1 = json.load(open(filepath1))
     config2 = json.load(open(filepath2))
     unique_keys = set(config1.keys()).union(config2.keys())
-    difference = {}
 
+    result = ['{']
     for key in unique_keys:
-        difference[key] = {}
         if key in config1:
             if key in config2:
                 if config1[key] == config2[key]:
-                    difference[key] = 'unchanged'
+                    # Value is unchanged in config2
+                    result.append(__get_item_diff_str(key, config1[key]))
                 else:
-                    difference[key] = 'changed'
+                    # Value is changed in config2
+                    result.append(__get_item_diff_str(key, config1[key], '-'))
+                    result.append(__get_item_diff_str(key, config2[key], '+'))
             else:
-                difference[key] = 'removed'
+                # Value is removed from config2
+                result.append(__get_item_diff_str(key, config1[key], '-'))
         else:
-            # If it's not in config1 dict, then it's definitely in config2 dict.
-            difference[key] = 'added'
+            # Value is added to config2
+            result.append(__get_item_diff_str(key, config2[key], '+'))
 
-    result = ['{']
-    for key, status in difference.items():
-        if status == 'unchanged':
-            result.append(f"    {key}: {__to_str_json_type(config1[key])}")
-        elif status == 'changed':
-            result.append(f"  - {key}: {__to_str_json_type(config1[key])}")
-            result.append(f"  + {key}: {__to_str_json_type(config2[key])}")
-        elif status == 'removed':
-            result.append(f"  - {key}: {__to_str_json_type(config1[key])}")
-        elif status == 'added':
-            result.append(f"  + {key}: {__to_str_json_type(config2[key])}")
     result.append('}')
-
     return "\n".join(result)
 
 
-def __to_str_json_type(value):
+def __get_item_diff_str(key, value, prepend=' '):
     if value is None:
-        result = 'null'
+        value = 'null'
     elif value is True:
-        result = 'true'
+        value = 'true'
     elif value is False:
-        result = 'false'
-    else:
-        result = str(value)
+        value = 'false'
 
-    return result
+    return f"  {prepend} {key}: {value}"
