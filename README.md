@@ -6,3 +6,9 @@
 ```
 pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ vetalpaprotsky-gendiff
 ```
+
+[![asciicast](https://asciinema.org/a/n9O6a7CPdkRIeJ7nwxZHFRzD6.svg)](https://asciinema.org/a/n9O6a7CPdkRIeJ7nwxZHFRzD6)
+
+
+## Basic usage
+[![asciicast](https://asciinema.org/a/phyii5oYKVZtPrzAyaOJVYiEe.svg)](https://asciinema.org/a/phyii5oYKVZtPrzAyaOJVYiEe)
