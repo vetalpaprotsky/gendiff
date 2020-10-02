@@ -1,10 +1,14 @@
 import json
+from collections import OrderedDict
 
 
 def generate_diff(filepath1, filepath2):
     config1 = json.load(open(filepath1))
     config2 = json.load(open(filepath2))
-    unique_keys = set(config1.keys()).union(config2.keys())
+    # Remove duplicate keys while preserving the order.
+    unique_keys = list(
+        OrderedDict.fromkeys(list(config1.keys()) + list(config2.keys()))
+    )
 
     result = ['{']
     for key in unique_keys:
