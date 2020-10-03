@@ -13,5 +13,9 @@ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://
 [![asciicast](https://asciinema.org/a/n9O6a7CPdkRIeJ7nwxZHFRzD6.svg)](https://asciinema.org/a/n9O6a7CPdkRIeJ7nwxZHFRzD6)
 
 
-## Basic usage
-[![asciicast](https://asciinema.org/a/phyii5oYKVZtPrzAyaOJVYiEe.svg)](https://asciinema.org/a/phyii5oYKVZtPrzAyaOJVYiEe)
+## JSON files example
+[![asciicast](https://asciinema.org/a/brbDmfP4aEkSa5zONirq5qa7G.svg)](https://asciinema.org/a/brbDmfP4aEkSa5zONirq5qa7G)
+
+
+## YAML files example
+[![asciicast](https://asciinema.org/a/QankdliA0Wa7YtrZIo2DaZMW3.svg)](https://asciinema.org/a/QankdliA0Wa7YtrZIo2DaZMW3)
