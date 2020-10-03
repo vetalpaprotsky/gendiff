@@ -25,3 +25,11 @@ jobs:
       - name: Run linter and pytest
         run: |
           make check
+      # FIXME: Coverage gets posted for every version of python. That's not
+      # needed. How can we trigger this step only for one python version?
+      - name: Publish code coverage
+        uses: paambaati/codeclimate-action@v2.7.3
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: poetry run coverage xml
