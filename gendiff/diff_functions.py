@@ -1,10 +1,10 @@
-import json
+from gendiff.file_loader import load_file
 from collections import OrderedDict
 
 
-def generate_diff(filepath1, filepath2):
-    config1 = json.load(open(filepath1))
-    config2 = json.load(open(filepath2))
+def generate_diff(file1_path, file2_path):
+    config1 = load_file(file1_path)
+    config2 = load_file(file2_path)
     # Remove duplicate keys while preserving the order.
     unique_keys = list(
         OrderedDict.fromkeys(list(config1.keys()) + list(config2.keys()))

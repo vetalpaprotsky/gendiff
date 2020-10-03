@@ -1,0 +1,6 @@
+<config>
+    <host>hexlet.io</host>
+    <timeout>50</timeout>
+    <proxy>123.234.53.22</proxy>
+    <follow>false</follow>
+</config>
