@@ -1,6 +1,7 @@
 # Gendiff
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/edc0ee50d88cb1a411ad/maintainability)](https://codeclimate.com/github/vetalpaprotsky/gendiff/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/edc0ee50d88cb1a411ad/test_coverage)](https://codeclimate.com/github/vetalpaprotsky/gendiff/test_coverage)
 ![Python CI](https://github.com/vetalpaprotsky/gendiff/workflows/Python%20CI/badge.svg)
 
 
