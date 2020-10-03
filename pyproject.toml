@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "vetalpaprotsky_gendiff"
-version = "0.3.1"
-description = ""
+version = "0.3.2"
+description = "Console utility for showing config files differences."
 license = "MIT"
 readme = "README.md"
 authors = ["Vitalii Paprotskyi <vetalpaprotsky@gmail.com>"]
