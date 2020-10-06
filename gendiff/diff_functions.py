@@ -9,8 +9,7 @@ def generate_diff(file1_path, file2_path):
 
 
 def render_diff(diff, cur_result=None, shift=0):
-    if cur_result is None:
-        cur_result = []
+    cur_result = cur_result or []
     cur_result += ['{', '\n']
     shift += 4
 
@@ -54,13 +53,17 @@ def generate_diff_structure(config1, config2, structure=None):
     if structure is None:
         structure = {}
 
+    config1_keys, config2_keys = set(config1), set(config2)
+
     # Adding removed items
-    structure.update(get_removed_items(config1, config2))
+    for key in config1_keys.difference(config2_keys):
+        structure[key] = {'status': 'removed', 'value': config1[key]}
 
     # Adding added items
-    structure.update(get_added_items(config1, config2))
+    for key in config2_keys.difference(config1_keys):
+        structure[key] = {'status': 'added', 'value': config2[key]}
 
-    for key in set(config1).intersection(set(config2)):
+    for key in config1_keys.intersection(config2_keys):
         value1, value2 = config1[key], config2[key]
 
         # Adding unchanged items
@@ -74,20 +77,6 @@ def generate_diff_structure(config1, config2, structure=None):
         else:
             structure[key] = {'status': 'changed', 'old': value1, 'new': value2}
 
-    return structure
-
-
-def get_removed_items(config1, config2):
-    structure = {}
-    for key in set(config1).difference(set(config2)):
-        structure[key] = {'status': 'removed', 'value': config1[key]}
-    return structure
-
-
-def get_added_items(config1, config2):
-    structure = {}
-    for key in set(config2).difference(set(config1)):
-        structure[key] = {'status': 'added', 'value': config2[key]}
     return structure
 
 
