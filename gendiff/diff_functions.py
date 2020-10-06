@@ -54,30 +54,40 @@ def generate_diff_structure(config1, config2, structure=None):
     if structure is None:
         structure = {}
 
-    config1_keys, config2_keys = set(config1), set(config2)
+    # Adding removed items
+    structure.update(get_removed_items(config1, config2))
 
-    # Removed keys
-    for key in config1_keys.difference(config2_keys):
-        structure[key] = {'status': 'removed', 'value': config1[key]}
+    # Adding added items
+    structure.update(get_added_items(config1, config2))
 
-    # Added keys
-    for key in config2_keys.difference(config1_keys):
-        structure[key] = {'status': 'added', 'value': config2[key]}
-
-    for key in config1_keys.intersection(config2_keys):
+    for key in set(config1).intersection(set(config2)):
         value1, value2 = config1[key], config2[key]
 
-        # Unchanged keys
+        # Adding unchanged items
         if value1 == value2:
             structure[key] = {'status': 'unchanged', 'value': value1}
-        # With changed children keys
+        # Adding items with changed children
         elif isinstance(value1, dict) and isinstance(value2, dict):
             structure[key] = {'status': 'children_changed', 'children': {}}
             generate_diff_structure(value1, value2, structure[key]['children'])
-        # Changed keys
+        # Adding changed items
         else:
             structure[key] = {'status': 'changed', 'old': value1, 'new': value2}
 
+    return structure
+
+
+def get_removed_items(config1, config2):
+    structure = {}
+    for key in set(config1).difference(set(config2)):
+        structure[key] = {'status': 'removed', 'value': config1[key]}
+    return structure
+
+
+def get_added_items(config1, config2):
+    structure = {}
+    for key in set(config2).difference(set(config1)):
+        structure[key] = {'status': 'added', 'value': config2[key]}
     return structure
 
 
