@@ -1,9 +1,9 @@
-from gendiff.file_loader import load_file
+from gendiff.file_loader import load_config_file
 
 
 def generate_diff(file1_path, file2_path):
-    config1 = load_file(file1_path)
-    config2 = load_file(file2_path)
+    config1 = load_config_file(file1_path)
+    config2 = load_config_file(file2_path)
     diff = generate_diff_structure(config1, config2)
     return ''.join(render_diff(diff))
 

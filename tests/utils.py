@@ -1,4 +1,5 @@
 import os
+import json
 
 
 def read_diff_output(file_name):
@@ -12,7 +13,18 @@ def read_diff_output(file_name):
         return file.read()
 
 
-def get_file_path(file_name):
+def read_diff_structure(file_name):
+    dir_path = os.path.join(
+        os.path.dirname(__file__),
+        'fixtures',
+        'diff_structures'
+    )
+    file_path = os.path.join(dir_path, file_name + '.json')
+    with open(file_path) as file:
+        return json.load(file)
+
+
+def get_config_file_path(file_name):
     _, file_ext = os.path.splitext(file_name)
     if file_ext == '.json':
         files_dir = 'json_files'
