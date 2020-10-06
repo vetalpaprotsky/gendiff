@@ -9,9 +9,7 @@ def read_diff_output(file_name):
     )
     file_path = os.path.join(dir_path, file_name + '.txt')
     with open(file_path) as file:
-        content = file.read()
-        # Remove trailing whitespaces.
-        return content.rstrip()
+        return file.read()
 
 
 def get_file_path(file_name):
