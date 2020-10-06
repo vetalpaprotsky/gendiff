@@ -19,3 +19,11 @@ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://
 
 ## YAML files example
 [![asciicast](https://asciinema.org/a/QankdliA0Wa7YtrZIo2DaZMW3.svg)](https://asciinema.org/a/QankdliA0Wa7YtrZIo2DaZMW3)
+
+
+## Recursive JSON files example
+[![asciicast](https://asciinema.org/a/TLxHHf8seuJ6rg6Jji1LZWeSm.svg)](https://asciinema.org/a/TLxHHf8seuJ6rg6Jji1LZWeSm)
+
+
+## Recursive YAML files example
+[![asciicast](https://asciinema.org/a/ajOpcgBErmy8o2KCQBj5byF3C.svg)](https://asciinema.org/a/ajOpcgBErmy8o2KCQBj5byF3C)
