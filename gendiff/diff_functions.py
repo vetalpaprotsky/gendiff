@@ -127,15 +127,17 @@ def generate_diff_structure(config1, config2):
             children.extend(generate_diff_structure(value1, value2))
         # Adding changed items
         else:
-            structure.append({
-                'key': key,
-                'value': value1,
-                'status': 'removed',
-            })
-            structure.append({
-                'key': key,
-                'value': value2,
-                'status': 'added',
-            })
+            structure.extend([
+                {
+                    'key': key,
+                    'value': value1,
+                    'status': 'removed',
+                },
+                {
+                    'key': key,
+                    'value': value2,
+                    'status': 'added',
+                }
+            ])
 
     return structure
