@@ -1,32 +1,23 @@
-[
-    {
-        "key": "follow",
+{
+    "follow": {
         "value": false,
         "status": "removed"
     },
-    {
-        "key": "proxy",
+    "proxy": {
         "value": "123.234.53.22",
         "status": "removed"
     },
-    {
-        "key": "verbose",
+    "verbose": {
         "value": true,
         "status": "added"
     },
-    {
-        "key": "host",
+    "host": {
         "value": "hexlet.io",
         "status": "unchanged"
     },
-    {
-        "key": "timeout",
-        "value": 50,
-        "status": "removed"
-    },
-    {
-        "key": "timeout",
-        "value": 20,
-        "status": "added"
+    "timeout": {
+        "old_value": 50,
+        "new_value": 20,
+        "status": "updated"
     }
-]
+}

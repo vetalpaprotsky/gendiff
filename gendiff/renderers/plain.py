@@ -1,2 +1,2 @@
-def render_diff(internal_structure):
-    return 'Not implemented yet :(\n'
+def render_diff(internal_structure, parent_keys=None):
+    pass

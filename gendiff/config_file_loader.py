@@ -5,7 +5,7 @@ import yaml
 
 def load_config_file(file_path):
     with open(file_path) as file:
-        file_type = get_file_type(file_path)
+        file_type = _get_file_type(file_path)
         if file_type == 'json':
             result = json.load(file)
         elif file_type == 'yaml':
@@ -19,7 +19,7 @@ def load_config_file(file_path):
     return result
 
 
-def get_file_type(file_path):
+def _get_file_type(file_path):
     _, file_ext = os.path.splitext(file_path)
     if file_ext == '.json':
         return 'json'

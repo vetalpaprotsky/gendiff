@@ -1,6 +1,5 @@
-[
-    {
-        "key": "group2",
+{
+    "group2": {
         "value": {
             "abc": 12345,
             "deep": {
@@ -9,8 +8,7 @@
         },
         "status": "removed"
     },
-    {
-        "key": "group3",
+    "group3": {
         "value": {
             "fee": 100500,
             "deep": {
@@ -21,114 +19,82 @@
         },
         "status": "added"
     },
-    {
-        "key": "common",
-        "children": [
-            {
-                "key": "setting2",
+    "common": {
+        "children": {
+            "setting2": {
                 "value": 200,
                 "status": "removed"
             },
-            {
-                "key": "follow",
+            "follow": {
                 "value": false,
                 "status": "added"
             },
-            {
-                "key": "setting4",
+            "setting4": {
                 "value": "blah blah",
                 "status": "added"
             },
-            {
-                "key": "setting5",
+            "setting5": {
                 "value": {
                     "key5": "value5"
                 },
                 "status": "added"
             },
-            {
-                "key": "setting1",
+            "setting1": {
                 "value": "Value 1",
                 "status": "unchanged"
             },
-            {
-                "key": "setting3",
-                "value": true,
-                "status": "removed"
-            },
-            {
-                "key": "setting3",
-                "value": {
+            "setting3": {
+                "old_value": true,
+                "new_value": {
                     "key": "value"
                 },
-                "status": "added"
+                "status": "updated"
             },
-            {
-                "key": "setting6",
-                "children": [
-                    {
-                        "key": "ops",
+            "setting6": {
+                "children": {
+                    "ops": {
                         "value": "vops",
                         "status": "added"
                     },
-                    {
-                        "key": "doge",
-                        "children": [
-                            {
-                                "key": "wow",
-                                "value": "too much",
-                                "status": "removed"
-                            },
-                            {
-                                "key": "wow",
-                                "value": "so much",
-                                "status": "added"
+                    "doge": {
+                        "children": {
+                            "wow": {
+                                "old_value": "too much",
+                                "new_value": "so much",
+                                "status": "updated"
                             }
-                        ],
-                        "status": "children_changed"
+                        },
+                        "status": "children_updated"
                     },
-                    {
-                        "key": "key",
+                    "key": {
                         "value": "value",
                         "status": "unchanged"
                     }
-                ],
-                "status": "children_changed"
+                },
+                "status": "children_updated"
             }
-        ],
-        "status": "children_changed"
+        },
+        "status": "children_updated"
     },
-    {
-        "key": "group1",
-        "children": [
-            {
-                "key": "baz",
-                "value": "bas",
-                "status": "removed"
+    "group1": {
+        "children": {
+            "baz": {
+                "old_value": "bas",
+                "new_value": "bars",
+                "status": "updated"
             },
-            {
-                "key": "baz",
-                "value": "bars",
-                "status": "added"
-            },
-            {
-                "key": "foo",
+            "foo": {
                 "value": "bar",
                 "status": "unchanged"
             },
-            {
-                "key": "nest",
-                "value": {
+            "nest": {
+                "old_value": {
                     "key": "value"
                 },
-                "status": "removed"
-            },
-            {
-                "key": "nest",
-                "value": "str",
-                "status": "added"
+                "new_value": "str",
+                "status": "updated"
             }
-        ],
-        "status": "children_changed"
+        },
+        "status": "children_updated"
     }
-]
+}
