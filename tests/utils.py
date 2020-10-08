@@ -13,11 +13,11 @@ def read_diff_output(file_name):
         return file.read()
 
 
-def read_diff_structure(file_name):
+def read_internal_structures(file_name):
     dir_path = os.path.join(
         os.path.dirname(__file__),
         'fixtures',
-        'diff_structures'
+        'internal_structures'
     )
     file_path = os.path.join(dir_path, file_name + '.json')
     with open(file_path) as file:
