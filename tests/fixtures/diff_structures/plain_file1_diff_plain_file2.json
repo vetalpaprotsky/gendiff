@@ -1,23 +1,32 @@
-{
-    "proxy": {
-        "status": "removed",
-        "value": "123.234.53.22"
+[
+    {
+        "key": "follow",
+        "value": false,
+        "status": "removed"
     },
-    "follow": {
-        "status": "removed",
-        "value": false
+    {
+        "key": "proxy",
+        "value": "123.234.53.22",
+        "status": "removed"
     },
-    "verbose": {
-        "status": "added",
-        "value": true
+    {
+        "key": "verbose",
+        "value": true,
+        "status": "added"
     },
-    "timeout": {
-        "status": "changed",
-        "old": 50,
-        "new": 20
+    {
+        "key": "host",
+        "value": "hexlet.io",
+        "status": "unchanged"
     },
-    "host": {
-        "status": "unchanged",
-        "value": "hexlet.io"
+    {
+        "key": "timeout",
+        "value": 50,
+        "status": "removed"
+    },
+    {
+        "key": "timeout",
+        "value": 20,
+        "status": "added"
     }
-}
+]
