@@ -1,5 +1,5 @@
 group1:
-    foo: bar
+    fifo: lifo
     baz: bars
     nest: str
 group3:
