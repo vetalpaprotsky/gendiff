@@ -13,17 +13,9 @@ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://
 [![asciicast](https://asciinema.org/a/n9O6a7CPdkRIeJ7nwxZHFRzD6.svg)](https://asciinema.org/a/n9O6a7CPdkRIeJ7nwxZHFRzD6)
 
 
-## JSON files example
-[![asciicast](https://asciinema.org/a/brbDmfP4aEkSa5zONirq5qa7G.svg)](https://asciinema.org/a/brbDmfP4aEkSa5zONirq5qa7G)
+## Basic usage
+[![asciicast](https://asciinema.org/a/MPTPN8F4JCeaYN8MUQGlWm5a3.svg)](https://asciinema.org/a/MPTPN8F4JCeaYN8MUQGlWm5a3)
 
 
-## YAML files example
-[![asciicast](https://asciinema.org/a/QankdliA0Wa7YtrZIo2DaZMW3.svg)](https://asciinema.org/a/QankdliA0Wa7YtrZIo2DaZMW3)
-
-
-## Recursive JSON files example
-[![asciicast](https://asciinema.org/a/TLxHHf8seuJ6rg6Jji1LZWeSm.svg)](https://asciinema.org/a/TLxHHf8seuJ6rg6Jji1LZWeSm)
-
-
-## Recursive YAML files example
-[![asciicast](https://asciinema.org/a/ajOpcgBErmy8o2KCQBj5byF3C.svg)](https://asciinema.org/a/ajOpcgBErmy8o2KCQBj5byF3C)
+## Output formats
+[![asciicast](https://asciinema.org/a/hr51jsguLWUNLCNZbysu2fKXw.svg)](https://asciinema.org/a/hr51jsguLWUNLCNZbysu2fKXw)
