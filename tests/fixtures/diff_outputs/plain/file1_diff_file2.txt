@@ -1,0 +1,14 @@
+Propery group2 was removed
+Propery plain2 was removed
+Propery group3 was added with value: [complex value]
+Propery plain3 was added with value: 300
+Propery common.setting2 was removed
+Propery common.follow was added with value: false
+Propery common.setting4 was added with value: 'blah blah'
+Propery common.setting5 was added with value: [complex value]
+Propery common.setting3 was updated. From true to [complex value]
+Propery common.setting6.ops was added with value: 'vops'
+Propery common.setting6.doge.wow was updated. From 'too much' to 'so much'
+Propery group1.baz was updated. From 'bas' to 'bars'
+Propery group1.nest was updated. From [complex value] to 'str'
+Propery plain1 was updated. From 100 to 150

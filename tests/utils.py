@@ -2,24 +2,25 @@ import os
 import json
 
 
-def read_diff_output(file_name):
+def read_diff_output(file_name, output_format):
     dir_path = os.path.join(
         os.path.dirname(__file__),
         'fixtures',
-        'diff_outputs'
+        'diff_outputs',
+        output_format,
     )
-    file_path = os.path.join(dir_path, file_name + '.txt')
+    file_path = os.path.join(dir_path, file_name)
     with open(file_path) as file:
         return file.read()
 
 
-def read_internal_structures(file_name):
+def read_internal_structure(file_name):
     dir_path = os.path.join(
         os.path.dirname(__file__),
         'fixtures',
         'internal_structures'
     )
-    file_path = os.path.join(dir_path, file_name + '.json')
+    file_path = os.path.join(dir_path, file_name)
     with open(file_path) as file:
         return json.load(file)
 
@@ -27,11 +28,11 @@ def read_internal_structures(file_name):
 def get_config_file_path(file_name):
     _, file_ext = os.path.splitext(file_name)
     if file_ext == '.json':
-        files_dir = 'json_files'
+        dir_name = 'json_files'
     elif file_ext == '.yml':
-        files_dir = 'yaml_files'
+        dir_name = 'yaml_files'
     elif file_ext == '.xml':
-        files_dir = 'xml_files'
+        dir_name = 'xml_files'
 
-    dir_path = os.path.join(os.path.dirname(__file__), 'fixtures', files_dir)
+    dir_path = os.path.join(os.path.dirname(__file__), 'fixtures', dir_name)
     return os.path.join(dir_path, file_name)

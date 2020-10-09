@@ -8,6 +8,10 @@
         },
         "status": "removed"
     },
+    "plain2": {
+        "value": 200,
+        "status": "removed"
+    },
     "group3": {
         "value": {
             "fee": 100500,
@@ -17,6 +21,10 @@
                 }
             }
         },
+        "status": "added"
+    },
+    "plain3": {
+        "value": 300,
         "status": "added"
     },
     "common": {
@@ -96,5 +104,14 @@
             }
         },
         "status": "children_updated"
+    },
+    "plain1": {
+        "old_value": 100,
+        "new_value": 150,
+        "status": "updated"
+    },
+    "plain4": {
+        "value": 400,
+        "status": "unchanged"
     }
 }

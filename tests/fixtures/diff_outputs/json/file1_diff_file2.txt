@@ -5,6 +5,7 @@
             id: 45
         }
     }
+  - plain2: 200
   + group3: {
         fee: 100500
         deep: {
@@ -13,6 +14,7 @@
             }
         }
     }
+  + plain3: 300
     common: {
       - setting2: 200
       + follow: false
@@ -43,4 +45,7 @@
         }
       + nest: str
     }
+  - plain1: 100
+  + plain1: 150
+    plain4: 400
 }
