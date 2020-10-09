@@ -7,16 +7,16 @@ from gendiff.diff_generator import generate_diff
     'file1_name,file2_name,output_file_name,output_format',
     [
         ('file1.json', 'file2.json', 'file1_diff_file2.txt', 'stylish'),
-        ('file1.yml', 'file2.yml', 'file1_diff_file2.txt', 'stylish'),
-        ('file1.json', 'file2.yml', 'file1_diff_file2.txt', 'stylish'),
-        ('empty.yml', 'empty.json', 'empty_diff_empty.txt', 'stylish'),
-        ('file1.json', 'empty.yml', 'file1_diff_empty.txt', 'stylish'),
+        ('file1.yml', 'empty.json', 'file1_diff_empty.txt', 'stylish'),
+        ('empty.yml', 'empty.yml', 'empty_diff_empty.txt', 'stylish'),
 
         ('file1.json', 'file2.json', 'file1_diff_file2.txt', 'plain'),
-        ('file1.yml', 'file2.yml', 'file1_diff_file2.txt', 'plain'),
-        ('file1.json', 'file2.yml', 'file1_diff_file2.txt', 'plain'),
-        ('empty.yml', 'empty.json', 'empty_diff_empty.txt', 'plain'),
-        ('file1.json', 'empty.yml', 'file1_diff_empty.txt', 'plain'),
+        ('file1.yml', 'empty.json', 'file1_diff_empty.txt', 'plain'),
+        ('empty.yml', 'empty.yml', 'empty_diff_empty.txt', 'plain'),
+
+        ('file1.json', 'file2.json', 'file1_diff_file2.txt', 'json'),
+        ('file1.yml', 'empty.json', 'file1_diff_empty.txt', 'json'),
+        ('empty.yml', 'empty.yml', 'empty_diff_empty.txt', 'json'),
     ]
 )
 def test_generate_diff_with_different_file_formats_and_output_formats(

@@ -1,9 +1,9 @@
-NEW_LEVEL_SHIFT = 4
+INDENT = 4
 
 
 def render_diff(internal_structure, shift=0):
     result = [_render_open_braket()]
-    shift += NEW_LEVEL_SHIFT
+    shift += INDENT
 
     for key, data in internal_structure.items():
         if data['status'] == 'children_updated':
@@ -19,7 +19,7 @@ def render_diff(internal_structure, shift=0):
                 _render_item(key, data['value'], data['status'], shift),
             )
 
-    result.append(_render_closed_braket(shift - NEW_LEVEL_SHIFT))
+    result.append(_render_closed_braket(shift - INDENT))
     return ''.join(result)
 
 
@@ -31,7 +31,7 @@ def _render_item(key, value, status, shift=0):
     if isinstance(value, dict):
         result.append(_render_open_braket())
         for k, v in value.items():
-            result.append(_render_item(k, v, None, shift + NEW_LEVEL_SHIFT))
+            result.append(_render_item(k, v, None, shift + INDENT))
         result.append(_render_closed_braket(shift))
     # Plain item value
     else:

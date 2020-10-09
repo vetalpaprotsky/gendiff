@@ -8,10 +8,15 @@ from gendiff.config_file_loader import load_config_file
     'file1_name,file2_name,internal_structure_file_name',
     [
         ('file1.json', 'file2.json', 'file1_diff_file2.json'),
-        ('file1.yml', 'file2.yml', 'file1_diff_file2.json'),
+        ('file1.yml', 'file2.json', 'file1_diff_file2.json'),
         ('file1.json', 'file2.yml', 'file1_diff_file2.json'),
-        ('empty.yml', 'empty.json', 'empty_diff_empty.json'),
+        ('file1.yml', 'file2.yml', 'file1_diff_file2.json'),
+
+        ('file1.yml', 'empty.json', 'file1_diff_empty.json'),
         ('file1.json', 'empty.yml', 'file1_diff_empty.json'),
+
+        ('empty.yml', 'empty.json', 'empty_diff_empty.json'),
+        ('empty.json', 'empty.yml', 'empty_diff_empty.json'),
     ]
 )
 def test_generate_internal_structure_with_different_file_formats(

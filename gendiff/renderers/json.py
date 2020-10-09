@@ -1,2 +1,5 @@
+import json
+
+
 def render_diff(internal_structure):
-    return 'Not implemented yet :('
+    return json.dumps(internal_structure, indent=4) + '\n'
