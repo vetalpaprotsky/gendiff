@@ -6,11 +6,11 @@ from gendiff.diff_generator import generate_diff
 @pytest.mark.parametrize(
     'file1_name,file2_name,output_file_name,output_format',
     [
-        ('file1.json', 'file2.json', 'file1_diff_file2.txt', 'json'),
-        ('file1.yml', 'file2.yml', 'file1_diff_file2.txt', 'json'),
-        ('file1.json', 'file2.yml', 'file1_diff_file2.txt', 'json'),
-        ('empty.yml', 'empty.json', 'empty_diff_empty.txt', 'json'),
-        ('file1.json', 'empty.yml', 'file1_diff_empty.txt', 'json'),
+        ('file1.json', 'file2.json', 'file1_diff_file2.txt', 'stylish'),
+        ('file1.yml', 'file2.yml', 'file1_diff_file2.txt', 'stylish'),
+        ('file1.json', 'file2.yml', 'file1_diff_file2.txt', 'stylish'),
+        ('empty.yml', 'empty.json', 'empty_diff_empty.txt', 'stylish'),
+        ('file1.json', 'empty.yml', 'file1_diff_empty.txt', 'stylish'),
 
         ('file1.json', 'file2.json', 'file1_diff_file2.txt', 'plain'),
         ('file1.yml', 'file2.yml', 'file1_diff_file2.txt', 'plain'),
