@@ -9,6 +9,10 @@ repository = "https://github.com/vetalpaprotsky/gendiff"
 packages = [
   { include = "gendiff" },
 ]
+classifiers = [
+  "Environment :: Console",
+  "Topic :: Utilities"
+]
 
 [tool.poetry.dependencies]
 python = "^3.6"
