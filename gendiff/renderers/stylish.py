@@ -1,15 +1,13 @@
 INDENT = 4
-braket_temp = "{}{}\n"
-item_key_temp = "{}{}: "
 
 
 def render_diff(diff_structure, shift=0):
-    result = [braket_temp.format('', '{')]
+    result = ['{\n']
     shift += INDENT
 
     for key, data in diff_structure.items():
         if data['status'] == 'children_updated':
-            result.append(item_key_temp.format(' ' * shift, key))
+            result.append(' ' * shift + key + ': ')
             result.append(render_diff(data['children'], shift))
         elif data['status'] == 'updated':
             result.extend([
@@ -21,20 +19,20 @@ def render_diff(diff_structure, shift=0):
                 _render_item(key, data['value'], data['status'], shift),
             )
 
-    result.append(braket_temp.format(' ' * (shift - INDENT), '}'))
+    result.append(' ' * (shift - INDENT) + '}\n')
     return ''.join(result)
 
 
 def _render_item(key, value, status, shift=0):
     prepend = _get_item_prepend(status)
-    result = [item_key_temp.format(' ' * (shift - len(prepend)) + prepend, key)]
+    result = [' ' * (shift - len(prepend)) + prepend + key + ': ']
 
     # Complex item value
     if isinstance(value, dict):
-        result.append(braket_temp.format('', '{'))
+        result.append('{\n')
         for k, v in value.items():
             result.append(_render_item(k, v, None, shift + INDENT))
-        result.append(braket_temp.format(' ' * shift, '}'))
+        result.append(' ' * shift + '}\n')
     # Plain item value
     else:
         result.append(_render_item_plain_value(value))
