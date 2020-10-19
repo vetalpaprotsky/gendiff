@@ -27,3 +27,19 @@ def test_generate_diff_with_different_file_formats_and_output_formats(
 
     diff_output = read_diff_output(output_file_name, output_format)
     assert generate_diff(file1_path, file2_path, output_format) == diff_output
+
+
+def test_generate_diff_with_unsupported_file_format():
+    file1_path = get_config_file_path('file1.xml')
+    file2_path = get_config_file_path('file2.xml')
+
+    with pytest.raises(ValueError):
+        generate_diff(file1_path, file2_path, 'plain')
+
+
+def test_generate_diff_with_unsupported_output_format():
+    file1_path = get_config_file_path('file1.json')
+    file2_path = get_config_file_path('file2.json')
+
+    with pytest.raises(ValueError):
+        generate_diff(file1_path, file2_path, 'unexisting')
