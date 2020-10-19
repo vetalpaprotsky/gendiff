@@ -5,7 +5,7 @@
 ![Python CI](https://github.com/vetalpaprotsky/gendiff/workflows/Python%20CI/badge.svg)
 
 
-## Instalation
+## Installation
 ```
 pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ vetalpaprotsky-gendiff
 ```
