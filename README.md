@@ -13,7 +13,7 @@ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://
 [![asciicast](https://asciinema.org/a/0Z0yMqHBrZ2WXWE6EZ33fnQ6k.svg)](https://asciinema.org/a/0Z0yMqHBrZ2WXWE6EZ33fnQ6k)
 
 ## Examples
-(All example files could be found in `config_files_examples` folder in the repository)
+(All example files could be found in `files_examples` folder in the repository)
 
 ### Simple JSON files
 [![asciicast](https://asciinema.org/a/xB2u1rjkElBUZNPmehj2jfgM2.svg)](https://asciinema.org/a/xB2u1rjkElBUZNPmehj2jfgM2)

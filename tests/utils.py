@@ -25,7 +25,7 @@ def read_diff_structure(file_name):
         return json.load(file)
 
 
-def get_config_file_path(file_name):
+def get_file_path(file_name):
     _, file_ext = os.path.splitext(file_name)
     if file_ext == '.json':
         dir_name = 'json_files'

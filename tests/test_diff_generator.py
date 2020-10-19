@@ -1,5 +1,5 @@
 import pytest
-from tests.utils import read_diff_output, get_config_file_path
+from tests.utils import read_diff_output, get_file_path
 from gendiff.diff_generator import generate_diff
 
 
@@ -22,24 +22,24 @@ from gendiff.diff_generator import generate_diff
 def test_generate_diff_with_different_file_formats_and_output_formats(
     file1_name, file2_name, output_file_name, output_format
 ):
-    file1_path = get_config_file_path(file1_name)
-    file2_path = get_config_file_path(file2_name)
+    file1_path = get_file_path(file1_name)
+    file2_path = get_file_path(file2_name)
 
     diff_output = read_diff_output(output_file_name, output_format)
     assert generate_diff(file1_path, file2_path, output_format) == diff_output
 
 
 def test_generate_diff_with_unsupported_file_format():
-    file1_path = get_config_file_path('file1.xml')
-    file2_path = get_config_file_path('file2.xml')
+    file1_path = get_file_path('file1.xml')
+    file2_path = get_file_path('file2.xml')
 
     with pytest.raises(ValueError):
         generate_diff(file1_path, file2_path, 'plain')
 
 
 def test_generate_diff_with_unsupported_output_format():
-    file1_path = get_config_file_path('file1.json')
-    file2_path = get_config_file_path('file2.json')
+    file1_path = get_file_path('file1.json')
+    file2_path = get_file_path('file2.json')
 
     with pytest.raises(ValueError):
         generate_diff(file1_path, file2_path, 'unexisting')

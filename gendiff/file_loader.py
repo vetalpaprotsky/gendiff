@@ -3,7 +3,7 @@ import json
 import yaml
 
 
-def load_config_file(file_path):
+def load_file(file_path):
     with open(file_path) as file:
         file_type = _get_file_type(file_path)
         if file_type == 'json':
