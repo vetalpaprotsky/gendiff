@@ -33,13 +33,17 @@ def test_generate_diff_with_unsupported_file_format():
     file1_path = get_file_path('file1.xml')
     file2_path = get_file_path('file2.xml')
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError) as error:
         generate_diff(file1_path, file2_path, 'plain')
+
+    assert str(error.value) == 'Unsupported file type'
 
 
 def test_generate_diff_with_unsupported_output_format():
     file1_path = get_file_path('file1.json')
     file2_path = get_file_path('file2.json')
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError) as error:
         generate_diff(file1_path, file2_path, 'unexisting')
+
+    assert str(error.value) == 'Invalid output format'
