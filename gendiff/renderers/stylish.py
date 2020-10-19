@@ -53,7 +53,16 @@ def _render_item_key(key, shift=0, prepend=''):
 
 
 def _render_item_plain_value(value):
-    return _to_normalized_str(value) + '\n'
+    if value is None:
+        normalized_str = 'null'
+    elif value is True:
+        normalized_str = 'true'
+    elif value is False:
+        normalized_str = 'false'
+    else:
+        normalized_str = str(value)
+
+    return normalized_str + '\n'
 
 
 def _get_item_prepend(item_status):
@@ -65,16 +74,3 @@ def _get_item_prepend(item_status):
         prepend = '  '
 
     return prepend
-
-
-def _to_normalized_str(value):
-    if value is None:
-        result = 'null'
-    elif value is True:
-        result = 'true'
-    elif value is False:
-        result = 'false'
-    else:
-        result = str(value)
-
-    return result
