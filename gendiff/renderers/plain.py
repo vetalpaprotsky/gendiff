@@ -1,9 +1,9 @@
-def render_diff(internal_structure, parent_keys=None):
+def render_diff(diff_structure, parent_keys=None):
     result = []
     if parent_keys is None:
         parent_keys = []
 
-    for key, data in internal_structure.items():
+    for key, data in diff_structure.items():
         key_with_parents = parent_keys + [key]
         if data['status'] == 'children_updated':
             result.append(render_diff(data['children'], key_with_parents))

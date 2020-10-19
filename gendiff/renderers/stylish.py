@@ -1,11 +1,11 @@
 INDENT = 4
 
 
-def render_diff(internal_structure, shift=0):
+def render_diff(diff_structure, shift=0):
     result = [_render_open_braket()]
     shift += INDENT
 
-    for key, data in internal_structure.items():
+    for key, data in diff_structure.items():
         if data['status'] == 'children_updated':
             result.append(_render_item_key(key, shift))
             result.append(render_diff(data['children'], shift))

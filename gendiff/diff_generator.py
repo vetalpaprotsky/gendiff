@@ -1,6 +1,6 @@
 from gendiff.config_file_loader import load_config_file
 from gendiff.renderers import stylish, plain, json
-from gendiff.internal_structure_generator import generate_internal_structure
+from gendiff.diff_structure_generator import generate_diff_structure
 
 
 def generate_diff(file1_path, file2_path, output_format):
@@ -16,5 +16,5 @@ def generate_diff(file1_path, file2_path, output_format):
     else:
         raise ValueError('Invalid output format')
 
-    structure = generate_internal_structure(config1, config2)
+    structure = generate_diff_structure(config1, config2)
     return renderer.render_diff(structure)

@@ -1,4 +1,4 @@
-def generate_internal_structure(config1, config2):
+def generate_diff_structure(config1, config2):
     structure = {}
     config1_keys, config2_keys = set(config1), set(config2)
 
@@ -20,7 +20,7 @@ def generate_internal_structure(config1, config2):
         elif isinstance(value1, dict) and isinstance(value2, dict):
             structure[key] = {
                 'status': 'children_updated',
-                'children': generate_internal_structure(value1, value2),
+                'children': generate_diff_structure(value1, value2),
             }
         # Adding updated items
         else:
