@@ -4,10 +4,9 @@ import yaml
 
 
 def load_file(file_path):
+    file_type = _get_file_type(file_path)
     with open(file_path) as file:
-        file_type = _get_file_type(file_path)
-        result = _parse_file(file, file_type)
-    return result
+        return _parse_file(file, file_type)
 
 
 def _parse_file(file, file_type):
