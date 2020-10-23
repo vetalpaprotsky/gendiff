@@ -7,32 +7,28 @@ def render_diff(diff_structure, parent_keys=None):
         key_with_parents = parent_keys + [key]
         if data['status'] == 'children_updated':
             result.append(render_diff(data['children'], key_with_parents))
-        elif data['status'] != 'unchanged':
+        else:
             result.append(_render_item(key_with_parents, data))
 
     return ''.join(result)
 
 
 def _render_item(key_with_parents, data):
-    result = f"Propery {'.'.join(key_with_parents)} was {data['status']}"
+    key_path = '.'.join(key_with_parents)
 
-    if data['status'] == 'updated':
-        result += _render_updated_item_data(data)
-    elif data['status'] == 'added':
-        result += _render_added_item_data(data)
+    if data['status'] == 'added':
+        value = _to_normalized_str(data['value'])
+        item_info = f'Propery {key_path} was added with value: {value}\n'
+    elif data['status'] == 'updated':
+        old = _to_normalized_str(data['old_value'])
+        new = _to_normalized_str(data['new_value'])
+        item_info = f'Propery {key_path} was updated. From {old} to {new}\n'
+    elif data['status'] == 'removed':
+        item_info = f'Propery {key_path} was removed\n'
+    else:
+        item_info = ''
 
-    return result + '\n'
-
-
-def _render_added_item_data(data):
-    value = _to_normalized_str(data['value'])
-    return f' with value: {value}'
-
-
-def _render_updated_item_data(data):
-    old_value = _to_normalized_str(data['old_value'])
-    new_value = _to_normalized_str(data['new_value'])
-    return f'. From {old_value} to {new_value}'
+    return item_info
 
 
 def _to_normalized_str(value):
