@@ -1,33 +1,33 @@
-def generate_diff_structure(config1, config2):
+def generate_diff_structure(old_data, new_data):
     structure = {}
-    config1_keys, config2_keys = set(config1), set(config2)
+    old_data_keys, new_data_keys = set(old_data), set(new_data)
 
     # Adding removed items
-    for key in sorted(config1_keys.difference(config2_keys)):
-        structure[key] = {'status': 'removed', 'value': config1[key]}
+    for key in sorted(old_data_keys.difference(new_data_keys)):
+        structure[key] = {'status': 'removed', 'value': old_data[key]}
 
     # Adding added items
-    for key in sorted(config2_keys.difference(config1_keys)):
-        structure[key] = {'status': 'added', 'value': config2[key]}
+    for key in sorted(new_data_keys.difference(old_data_keys)):
+        structure[key] = {'status': 'added', 'value': new_data[key]}
 
-    for key in sorted(config1_keys.intersection(config2_keys)):
-        value1, value2 = config1[key], config2[key]
+    for key in sorted(old_data_keys.intersection(new_data_keys)):
+        old_value, new_value = old_data[key], new_data[key]
 
         # Adding unchanged items
-        if value1 == value2:
-            structure[key] = {'status': 'unchanged', 'value': value1}
+        if old_value == new_value:
+            structure[key] = {'status': 'unchanged', 'value': old_value}
         # Adding items with updated children
-        elif isinstance(value1, dict) and isinstance(value2, dict):
+        elif isinstance(old_value, dict) and isinstance(new_value, dict):
             structure[key] = {
                 'status': 'children_updated',
-                'children': generate_diff_structure(value1, value2),
+                'children': generate_diff_structure(old_value, new_value),
             }
         # Adding updated items
         else:
             structure[key] = {
                 'status': 'updated',
-                'old_value': value1,
-                'new_value': value2,
+                'old_value': old_value,
+                'new_value': new_value,
             }
 
     return structure

@@ -22,7 +22,7 @@ from gendiff.file_loader import load_file
 def test_generate_diff_structure_with_different_file_formats(
     file1_name, file2_name, diff_structure_file_name
 ):
-    config1 = load_file(get_file_path(file1_name))
-    config2 = load_file(get_file_path(file2_name))
+    old_data = load_file(get_file_path(file1_name))
+    new_data = load_file(get_file_path(file2_name))
     structure = read_diff_structure(diff_structure_file_name)
-    assert generate_diff_structure(config1, config2) == structure
+    assert generate_diff_structure(old_data, new_data) == structure

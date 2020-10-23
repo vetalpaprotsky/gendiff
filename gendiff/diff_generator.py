@@ -4,8 +4,8 @@ from gendiff.diff_structure_generator import generate_diff_structure
 
 
 def generate_diff(file1_path, file2_path, output_format):
-    config1 = load_file(file1_path)
-    config2 = load_file(file2_path)
+    old_data = load_file(file1_path)
+    new_data = load_file(file2_path)
 
     if output_format == 'stylish':
         renderer = stylish
@@ -16,5 +16,5 @@ def generate_diff(file1_path, file2_path, output_format):
     else:
         raise ValueError('Invalid output format')
 
-    structure = generate_diff_structure(config1, config2)
+    structure = generate_diff_structure(old_data, new_data)
     return renderer.render_diff(structure)
