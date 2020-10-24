@@ -1,5 +1,4 @@
 INDENT = 4
-NO_PREPEND = '  '
 ADDED_PREPEND = '+ '
 REMOVED_PREPEND = '- '
 
@@ -14,26 +13,26 @@ def render_diff(diff_structure, shift=0):
             result.append(render_diff(data['children'], shift))
         elif data['status'] == 'updated':
             result.extend([
-                _render_item(key, data['old_value'], REMOVED_PREPEND, shift),
-                _render_item(key, data['new_value'], ADDED_PREPEND, shift),
+                _render_item(key, data['old_value'], shift, REMOVED_PREPEND),
+                _render_item(key, data['new_value'], shift, ADDED_PREPEND),
             ])
         else:
             result.append(_render_item(
-                key, data['value'], _get_item_prepend(data['status']), shift
+                key, data['value'], shift, _get_item_prepend(data['status'])
             ))
 
     result.append(' ' * (shift - INDENT) + '}\n')
     return ''.join(result)
 
 
-def _render_item(key, value, prepend, shift=0):
+def _render_item(key, value, shift=0, prepend=''):
     result = [' ' * (shift - len(prepend)) + prepend + key + ': ']
 
     # Complex item value
     if isinstance(value, dict):
         result.append('{\n')
         for k, v in value.items():
-            result.append(_render_item(k, v, NO_PREPEND, shift + INDENT))
+            result.append(_render_item(k, v, shift + INDENT))
         result.append(' ' * shift + '}\n')
     # Plain item value
     else:
@@ -60,7 +59,7 @@ def _get_item_prepend(item_status):
         prepend = REMOVED_PREPEND
     elif item_status == 'added':
         prepend = ADDED_PREPEND
-    elif item_status == 'unchanged':
-        prepend = NO_PREPEND
+    else:
+        prepend = ''
 
     return prepend
