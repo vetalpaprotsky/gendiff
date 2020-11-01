@@ -3,29 +3,39 @@ ADDED_PREPEND = '+ '
 REMOVED_PREPEND = '- '
 
 
-def render_diff(diff_structure, shift=0):
+def render(diff):
+    return _render(diff, 0).rstrip('\n')
+
+
+def _render(diff, shift):
     result = ['{\n']
     shift += INDENT
 
-    for key, data in diff_structure.items():
+    for key, data in diff.items():
         if data['status'] == 'children_updated':
             result.append(' ' * shift + key + ': ')
-            result.append(render_diff(data['children'], shift))
+            result.append(_render(data['children'], shift))
         elif data['status'] == 'updated':
             result.extend([
                 _render_item(key, data['old_value'], shift, REMOVED_PREPEND),
                 _render_item(key, data['new_value'], shift, ADDED_PREPEND),
             ])
-        else:
-            result.append(_render_item(
-                key, data['value'], shift, _get_item_prepend(data['status'])
-            ))
+        elif data['status'] == 'added':
+            result.append(
+                _render_item(key, data['value'], shift, ADDED_PREPEND)
+            )
+        elif data['status'] == 'removed':
+            result.append(
+                _render_item(key, data['value'], shift, REMOVED_PREPEND)
+            )
+        elif data['status'] == 'unchanged':
+            result.append(_render_item(key, data['value'], shift))
 
     result.append(' ' * (shift - INDENT) + '}\n')
     return ''.join(result)
 
 
-def _render_item(key, value, shift=0, prepend=''):
+def _render_item(key, value, shift, prepend=''):
     result = [' ' * (shift - len(prepend)) + prepend + key + ': ']
 
     # Complex item value
@@ -36,12 +46,12 @@ def _render_item(key, value, shift=0, prepend=''):
         result.append(' ' * shift + '}\n')
     # Plain item value
     else:
-        result.append(_to_normalized_str(value) + '\n')
+        result.append(_to_str(value) + '\n')
 
     return ''.join(result)
 
 
-def _to_normalized_str(value):
+def _to_str(value):
     if value is None:
         result = 'null'
     elif value is True:
@@ -52,14 +62,3 @@ def _to_normalized_str(value):
         result = str(value)
 
     return result
-
-
-def _get_item_prepend(item_status):
-    if item_status == 'removed':
-        prepend = REMOVED_PREPEND
-    elif item_status == 'added':
-        prepend = ADDED_PREPEND
-    else:
-        prepend = ''
-
-    return prepend

@@ -17,4 +17,4 @@ def generate_diff(file1_path, file2_path, output_format):
         raise ValueError('Invalid output format')
 
     structure = generate_diff_structure(old_data, new_data)
-    return renderer.render_diff(structure)
+    return renderer.render(structure)

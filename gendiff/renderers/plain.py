@@ -1,28 +1,31 @@
-def render_diff(diff_structure, parent_keys=None):
-    result = []
-    parent_keys = parent_keys or []
+def render(diff):
+    return _render(diff, [])
 
-    for key, data in diff_structure.items():
+
+def _render(diff, parent_keys):
+    result = []
+
+    for key, data in diff.items():
         key_with_parents = parent_keys + [key]
         key_path = '.'.join(key_with_parents)
         if data['status'] == 'children_updated':
-            result.append(render_diff(data['children'], key_with_parents))
-        elif data['status'] == 'added':
-            value = _to_normalized_str(data['value'])
-            result.append(f'Propery {key_path} was added with value: {value}\n')
+            result.append(_render(data['children'], key_with_parents))
         elif data['status'] == 'updated':
-            old = _to_normalized_str(data['old_value'])
-            new = _to_normalized_str(data['new_value'])
+            old = _to_str(data['old_value'])
+            new = _to_str(data['new_value'])
             result.append(
-                f'Propery {key_path} was updated. From {old} to {new}\n'
+                f'Propery {key_path} was updated. From {old} to {new}'
             )
+        elif data['status'] == 'added':
+            value = _to_str(data['value'])
+            result.append(f'Propery {key_path} was added with value: {value}')
         elif data['status'] == 'removed':
-            result.append(f'Propery {key_path} was removed\n')
+            result.append(f'Propery {key_path} was removed')
 
-    return ''.join(result)
+    return '\n'.join(result)
 
 
-def _to_normalized_str(value):
+def _to_str(value):
     if isinstance(value, dict):
         result = '[complex value]'
     elif isinstance(value, str):
