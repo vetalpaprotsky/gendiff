@@ -1,5 +1,5 @@
 import json
 
 
-def render(diff):
-    return json.dumps(diff, indent=4)
+def render(diff_tree):
+    return json.dumps(diff_tree, indent=4)

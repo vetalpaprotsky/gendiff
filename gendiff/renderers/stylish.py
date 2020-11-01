@@ -3,15 +3,15 @@ ADDED_PREPEND = '+ '
 REMOVED_PREPEND = '- '
 
 
-def render(diff):
-    return _render(diff, 0).rstrip('\n')
+def render(diff_tree):
+    return _render(diff_tree, 0).rstrip('\n')
 
 
-def _render(diff, shift):
+def _render(diff_tree, shift):
     result = ['{\n']
     shift += INDENT
 
-    for key, data in diff.items():
+    for key, data in diff_tree.items():
         if data['status'] == 'children_updated':
             result.append(' ' * shift + key + ': ')
             result.append(_render(data['children'], shift))

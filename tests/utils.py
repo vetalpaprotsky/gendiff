@@ -14,11 +14,11 @@ def read_diff_output(file_name, output_format):
         return file.read()
 
 
-def read_diff_structure(file_name):
+def load_diff_tree(file_name):
     dir_path = os.path.join(
         os.path.dirname(__file__),
         'fixtures',
-        'diff_structures'
+        'diff_trees'
     )
     file_path = os.path.join(dir_path, file_name)
     with open(file_path) as file:

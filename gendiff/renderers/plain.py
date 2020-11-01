@@ -1,11 +1,11 @@
-def render(diff):
-    return _render(diff, [])
+def render(diff_tree):
+    return _render(diff_tree, [])
 
 
-def _render(diff, parent_keys):
+def _render(diff_tree, parent_keys):
     result = []
 
-    for key, data in diff.items():
+    for key, data in diff_tree.items():
         key_with_parents = parent_keys + [key]
         key_path = '.'.join(key_with_parents)
         if data['status'] == 'children_updated':
