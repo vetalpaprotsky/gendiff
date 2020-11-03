@@ -8,7 +8,7 @@ def render(diff_tree):
 
 
 def _render(diff_tree, shift):
-    result = ['{\n']
+    result = []
     shift += INDENT
 
     for key, data in diff_tree.items():
@@ -31,6 +31,7 @@ def _render(diff_tree, shift):
         elif data['status'] == 'unchanged':
             result.append(_render_item(key, data['value'], shift))
 
+    result.insert(0, '{\n')
     result.append(' ' * (shift - INDENT) + '}\n')
     return ''.join(result)
 
