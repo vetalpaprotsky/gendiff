@@ -1,5 +1,0 @@
-<config>
-    <timeout>20</timeout>
-    <verbose>true</verbose>
-    <host>hexlet.io</host>
-</config>
