@@ -1,3 +1,4 @@
+
 name: Python CI
 
 on:
@@ -7,16 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        # we want to test our package on several versions of Python
-        python-version: [3.6, 3.7, 3.8]
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.8
         # make depends on poetry
       - name: Install dependencies
         run: |
@@ -25,8 +22,6 @@ jobs:
       - name: Run linter and pytest
         run: |
           make check
-      # FIXME: Coverage gets posted for every version of python. That's not
-      # needed. How can we trigger this step only for one python version?
       - name: Publish code coverage
         uses: paambaati/codeclimate-action@v2.7.3
         env:
