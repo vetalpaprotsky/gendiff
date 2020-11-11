@@ -1,6 +1,0 @@
-Propery common was removed
-Propery group1 was removed
-Propery group2 was removed
-Propery plain1 was removed
-Propery plain2 was removed
-Propery plain4 was removed
