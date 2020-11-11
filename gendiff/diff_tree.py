@@ -1,17 +1,17 @@
-def generate_diff_tree(old_data, new_data):
+def generate_diff_tree(old_dict, new_dict):
     tree = {}
-    old_data_keys, new_data_keys = set(old_data), set(new_data)
+    old_dict_keys, new_dict_keys = set(old_dict), set(new_dict)
 
     # Adding removed items
-    for key in sorted(old_data_keys.difference(new_data_keys)):
-        tree[key] = {'status': 'removed', 'value': old_data[key]}
+    for key in sorted(old_dict_keys.difference(new_dict_keys)):
+        tree[key] = {'status': 'removed', 'value': old_dict[key]}
 
     # Adding added items
-    for key in sorted(new_data_keys.difference(old_data_keys)):
-        tree[key] = {'status': 'added', 'value': new_data[key]}
+    for key in sorted(new_dict_keys.difference(old_dict_keys)):
+        tree[key] = {'status': 'added', 'value': new_dict[key]}
 
-    for key in sorted(old_data_keys.intersection(new_data_keys)):
-        old_value, new_value = old_data[key], new_data[key]
+    for key in sorted(old_dict_keys.intersection(new_dict_keys)):
+        old_value, new_value = old_dict[key], new_dict[key]
 
         # Adding unchanged items
         if old_value == new_value:
