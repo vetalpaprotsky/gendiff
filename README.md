@@ -2,7 +2,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/edc0ee50d88cb1a411ad/maintainability)](https://codeclimate.com/github/vetalpaprotsky/gendiff/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/edc0ee50d88cb1a411ad/test_coverage)](https://codeclimate.com/github/vetalpaprotsky/gendiff/test_coverage)
-![Python CI](https://github.com/vetalpaprotsky/gendiff/workflows/Python%20CI/badge.svg)
+[![Python CI](https://github.com/vetalpaprotsky/gendiff/workflows/Python%20CI/badge.svg)](https://github.com/vetalpaprotsky/gendiff/actions)
 
 ## Installation
 Gendiff can be installed using pip. The package is published on [TestPyPI](https://test.pypi.org/) repository(not [PyPI](https://pypi.org/), as usually) so, you need to pass additional parameters to `pip install` command to make pip search for the package on [TestPyPI](https://test.pypi.org/) instead of [PyPI](https://pypi.org/). Note that the name of the package is actually vetalpaprotsky-gendiff. Here's the installation command:
