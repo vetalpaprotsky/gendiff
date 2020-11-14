@@ -15,13 +15,14 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.8"
 PyYAML = "^5.3.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.3"
 pytest = "^6.1.0"
 pytest-cov = "^2.10.1"
+pep8-naming = "^0.11.1"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"
