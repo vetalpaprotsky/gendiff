@@ -14,7 +14,7 @@ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://
 To verify that the installation was successful, run `gendiff -h` command in the terminal. If you're not getting any errors, then everything went well.
 
 Here's how the installation process looks like:
-[![asciicast](https://asciinema.org/a/cSzpo7BhLYCHX17rvPmSKEXg1.svg)](https://asciinema.org/a/cSzpo7BhLYCHX17rvPmSKEXg1)
+[![asciicast](https://asciinema.org/a/Y03UEr8ZwPsSr8fUcfp4k8adJ.svg)](https://asciinema.org/a/Y03UEr8ZwPsSr8fUcfp4k8adJ)
 
 ## File types & output formats
 Gendiff knows how to work with JSON and YAML files. The difference between files can be outputted in three different formats: stylish, plain, json.
