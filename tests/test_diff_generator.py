@@ -1,3 +1,4 @@
+import json
 import pytest
 from tests.utils import get_fixture_file_abs_path
 from gendiff.diff_generator import generate_diff
@@ -22,5 +23,10 @@ def test_generate_diff(
     file1_abs_path = get_fixture_file_abs_path(file1_path)
     file2_abs_path = get_fixture_file_abs_path(file2_path)
     with open(get_fixture_file_abs_path(diff_file_path)) as file:
-        diff = file.read()
-    assert generate_diff(file1_abs_path, file2_abs_path, output_format) == diff
+        expected = file.read()
+    diff = generate_diff(file1_abs_path, file2_abs_path, output_format)
+
+    if output_format == 'json':
+        assert json.loads(diff) == json.loads(expected)
+    else:
+        assert diff == expected
